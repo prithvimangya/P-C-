@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int R, C;
+    printf("Enter rows and cols: ");
+    scanf("%d %d", &R, &C);
+
+    int *mat = malloc(R * C * sizeof(int));
+    for (int i = 0; i < R; i++)
+        for (int j = 0; j < C; j++)
+            scanf("%d", mat + i*C + j);
+
+    printf("Transpose:\n");
+    for (int i = 0; i < C; i++) {
+        for (int j = 0; j < R; j++)
+            printf("%d ", *(mat + j*C + i));
+        printf("\n");
+    }
+    free(mat);
+    return 0;
+}
